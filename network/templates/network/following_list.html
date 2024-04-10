@@ -1,0 +1,21 @@
+{% extends "network/layout.html" %}
+{% block body %}
+    <div class="main-div">
+        <div class="left-div">
+            <nav class="head heading">Following List</nav>
+            <div class="left-div-content">
+                <div class="posts-view">
+                    <div class="main-div-content">
+                        <ul>
+                            {% for follower in following %}
+                                <li><a href="{% url 'profile' follower.following.username %}">{{ follower.following.username }}</a></li>
+                            {% empty %}
+                                <li>No users followed yet.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
